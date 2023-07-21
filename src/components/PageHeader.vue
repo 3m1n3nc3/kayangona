@@ -85,7 +85,7 @@
 import NavBar from './NavBar.vue'
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle'
-const banner = import('../assets/images/banner-bg.svg')
+import banner from '../assets/images/banner-bg.svg'
 // register Swiper custom elements
 register()
 
