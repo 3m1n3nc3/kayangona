@@ -75,7 +75,7 @@
       v-else
       id="home"
       class="header-hero sm:h-80 h-36"
-      style="background-image: url(src/assets/images/banner-bg.svg)"
+      :style="{ backgroundImage: `url(${banner})` }"
     ></div>
     <!-- header hero -->
   </header>
