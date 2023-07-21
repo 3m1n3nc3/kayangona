@@ -4,7 +4,7 @@
     <div
       id="home"
       class="header-hero"
-      style="background-image: url(src/assets/images/banner-bg.svg)"
+      :style="{ backgroundImage: `url(${banner})` }"
       v-if="slides.length"
     >
       <swiper-container>
@@ -85,6 +85,7 @@
 import NavBar from './NavBar.vue'
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle'
+const banner = import('../assets/images/banner-bg.svg')
 // register Swiper custom elements
 register()
 
