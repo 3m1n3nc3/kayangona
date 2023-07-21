@@ -1,10 +1,31 @@
+<script setup>
+import { ref, watch } from 'vue'
+
+const video = ref(null)
+const paused = ref(true)
+const play = () => {
+  paused.value ? video.value.play() : video.value.pause()
+}
+
+watch(video, (val) => {
+  if (val) {
+    val.addEventListener('play', () => {
+      paused.value = false
+    })
+    val.addEventListener('pause', () => {
+      paused.value = true
+    })
+  }
+})
+</script>
+
 <template>
   <section id="facts" class="pt-20 video-counter">
     <div class="container">
       <div class="row">
         <div class="w-full lg:w-1/2">
           <div
-            class="relative pb-8 mt-12 video-content wow fadeIn"
+            class="relative flex justify-center pb-8 mt-12 video-content wow fadeIn"
             data-wow-duration="1s"
             data-wow-delay="0.5s"
           >
@@ -13,23 +34,26 @@
               src="/src/assets/images/dots.svg"
               alt="dots"
             />
-            <div class="relative mr-6 rounded-lg shadow-md video-wrapper">
+            <div class="relative mr-0 rounded-lg shadow-md sm:mr-6 video-wrapper">
               <div class="video-image">
-                <img src="/src/assets/images/video.png" alt="video" />
+                <video ref="video" class="min-h-[25em] object-cover object-center">
+                  <source src="/videos/1.mp4" type="video/mp4" />
+                </video>
+                <!-- <img src="/src/assets/images/video.png" alt="video" /> -->
               </div>
               <div
                 class="absolute top-0 left-0 flex items-center justify-center w-full h-full bg-blue-900 bg-opacity-25 rounded-lg video-icon"
               >
-                <a href="https://www.youtube.com/watch?v=r44RKWyfcFw" class="video-popup"
-                  ><i class="lni lni-play"></i
-                ></a>
+                <button class="video-popup" @click="play">
+                  <i :class="`lni lni-${paused ? 'play' : 'pause'}`"></i>
+                </button>
               </div>
             </div>
             <!-- video wrapper -->
           </div>
           <!-- video content -->
         </div>
-        <div class="w-full lg:w-1/2">
+        <div class="flex items-center w-full lg:w-1/2">
           <div
             class="pl-0 mt-12 counter-wrapper lg:pl-16 wow fadeIn"
             data-wow-duration="1s"
@@ -38,13 +62,12 @@
             <div class="counter-content">
               <div class="mb-8 section-title">
                 <div class="line"></div>
-                <h3 class="title">Learn more <span> about us</span></h3>
+                <h3 class="title">Meet our <span> happy partners</span></h3>
               </div>
               <!-- section title -->
               <p class="text">
-                What better way to learn about us than to watch this short video, you will be taken
-                through our journey so far and how we are solving the problem of food insecurity in
-                Nigeria.
+                Hear what recent beneficiaries of our services have to say about us, maybe you can
+                be the next.
               </p>
             </div>
             <!-- counter content ::Currently Hidden::-->

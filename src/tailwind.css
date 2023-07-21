@@ -173,7 +173,8 @@ p {
   @apply absolute top-0 left-0 h-full;
 }
 
-.video-icon a {
+.video-icon a,
+.video-icon button {
   @apply flex items-center justify-center w-16 h-16 bg-white rounded-full text-theme-color-2;
 }
 .single-counter {

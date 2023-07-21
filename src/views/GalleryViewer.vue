@@ -11,42 +11,37 @@
 
         <p class="mt-4 text-center text-gray-500 dark:text-gray-300">See our products in action.</p>
 
-        <div class="grid grid-cols-2 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-3 xl:grid-cols-4">
-          <template v-for="index in 214">
-            <!-- <div
-            :key="index"
-            :class="`bg-red-200 xl:col-span-${randSpan(index)}`"
-            v-if="
-              (randSpan(index - 1) == 1 && randSpan(index) == 1) ||
-              (randSpan(index - 1) == 2 && randSpan(index) == 1) ||
-              (randSpan(index - 1) == 1 && randSpan(index) == 2)
-            "
+        <div class="flex justify-center">
+          <swiper-container
+            style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+            class="w-full sm:w-2/3 mySwiper"
+            thumbs-swiper=".mySwiper2"
+            space-between="10"
+            navigation="true"
           >
-            <img
-              class="object-cover object-top w-full rounded-lg h-96"
-              :src="loadImg(index)"
-              alt=""
-            />
-          </div> -->
-            <div
-              :key="index"
-              :class="`rounded-lg overflow-hidden xl:col-span-${randSpan(index)}`"
-              v-if="1"
-            >
-              <div
-                class="absolute z-0 flex items-center justify-center w-10 h-10 text-2xl font-extrabold text-white rounded-tl-lg bg-primary"
-              >
-                {{ index }}
+            <swiper-slide lazy="true" :key="index" v-for="index in 214">
+              <div class="overflow-hidden rounded-lg bg-theme-color-2">
+                <img
+                  class="object-contain object-center w-full h-96"
+                  :src="loadImg(index)"
+                  alt=""
+                />
               </div>
-              <img class="object-cover object-center w-full h-96" :src="loadImg(index)" alt="" />
-              <!-- <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
-            Best website collections
-          </h2>
-          <p class="mt-2 text-lg tracking-wider text-blue-500 uppercase dark:text-blue-400">
-            Website
-          </p> -->
-            </div>
-          </template>
+            </swiper-slide>
+          </swiper-container>
+        </div>
+        <div class="flex justify-center">
+          <swiper-container
+            class="w-full h-[5em] sm:w-2/3 mySwiper2 sm:h-[9em]"
+            space-between="10"
+            slides-per-view="6"
+            free-mode="true"
+            watch-slides-progress="true"
+          >
+            <swiper-slide lazy="true" :key="index" v-for="index in 214">
+              <img class="object-cover object-center w-full h-full" :src="loadImg(index)" alt="" />
+            </swiper-slide>
+          </swiper-container>
         </div>
       </div>
     </section>
@@ -55,6 +50,9 @@
 
 <script setup>
 import PageHeader from '../components/PageHeader.vue'
+import { register } from 'swiper/element/bundle'
+register()
+
 const loadImg = (index) => {
   return `/gallery/0${index}.jpg`
   // if (index < 10) {
@@ -75,3 +73,19 @@ const randSpan = (index) => {
   }
 }
 </script>
+<style>
+.mySwiper2 {
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper2 swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper2 .swiper-slide-thumb-active {
+  opacity: 1;
+}
+</style>
