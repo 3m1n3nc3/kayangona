@@ -1,5 +1,7 @@
 # kayangona
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b8a3de23-f4b4-418f-9733-256854b7c4c0/deploy-status)](https://app.netlify.com/sites/kayangona/deploys)
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup

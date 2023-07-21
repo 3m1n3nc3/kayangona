@@ -24,11 +24,7 @@
           <div class="single-services wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
             <div class="services-icon">
               <img class="shape" src="/src/assets/images/services-shape.svg" alt="shape" />
-              <img
-                class="shape-1"
-                :src="`src/assets/images/services-shape-${i + 1}.svg`"
-                alt="shape"
-              />
+              <img class="shape-1" :src="shapes[i] ?? shapes[0]" alt="shape" />
               <i class="lni lni-baloon"></i>
             </div>
             <div class="mt-8 services-content">
@@ -65,6 +61,10 @@
 <script setup>
 import Highlighter from 'vue-highlight-words'
 import { computed } from 'vue'
+import shape1 from '../assets/images/services-shape-1.svg'
+import shape2 from '../assets/images/services-shape-2.svg'
+import shape3 from '../assets/images/services-shape-3.svg'
+const shapes = [shape1, shape2, shape3]
 
 const props = defineProps({
   title: {
