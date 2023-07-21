@@ -36,7 +36,7 @@ watch(video, (val) => {
             />
             <div class="relative mr-0 rounded-lg shadow-md sm:mr-6 video-wrapper">
               <div class="video-image">
-                <video ref="video" class="min-h-[25em] object-cover object-center">
+                <video ref="video" class="min-h-[25em] object-cover object-center bg-theme-color-2">
                   <source src="/videos/1.mp4" type="video/mp4" />
                 </video>
                 <!-- <img src="/src/assets/images/video.png" alt="video" /> -->
