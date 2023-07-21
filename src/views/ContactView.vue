@@ -147,115 +147,113 @@ const socials = [
               data-wow-duration="1s"
               data-wow-delay="0.5s"
             >
-              <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="relative overflow-hidden bg-transparent rounded-lg">
-                  <h2 class="sr-only">Contact Form</h2>
+              <div class="relative overflow-hidden bg-transparent rounded-lg">
+                <h2 class="sr-only">Contact Form</h2>
 
-                  <div class="grid grid-cols-1 lg:grid-cols-3">
-                    <!-- Contact form -->
-                    <div class="px-6 py-10 sm:px-10 lg:col-span-3 xl:p-12">
-                      <h3 class="text-lg font-medium text-gray-900">Send us a message</h3>
-                      <form
-                        action="/forms/contact-us.php"
-                        method="POST"
-                        class="grid grid-cols-1 mt-6 text-left gap-y-6 sm:grid-cols-2 sm:gap-x-2"
-                        name="contact"
-                      >
-                        <input type="hidden" name="origin" :value="$route.fullPath" />
-                        <div>
-                          <label for="fullname" class="block text-sm font-medium text-gray-900"
-                            >Full name</label
+                <div class="grid grid-cols-1 lg:grid-cols-3">
+                  <!-- Contact form -->
+                  <div class="py-10 lg:col-span-3 xl:p-12">
+                    <h3 class="text-lg font-medium text-gray-900">Send us a message</h3>
+                    <form
+                      action="/forms/contact-us.php"
+                      method="POST"
+                      class="grid grid-cols-1 mt-6 text-left gap-y-6 sm:grid-cols-2 sm:gap-x-2"
+                      name="contact"
+                    >
+                      <input type="hidden" name="origin" :value="$route.fullPath" />
+                      <div>
+                        <label for="fullname" class="block text-sm font-medium text-gray-900"
+                          >Full name</label
+                        >
+                        <div class="mt-1">
+                          <input
+                            type="text"
+                            name="fullname"
+                            id="fullname"
+                            autocomplete="name"
+                            class="block w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                          />
+                          <p
+                            class="mt-2 text-sm text-red-600"
+                            v-if="route.query?.success == 'false' && route.query?.fullname"
                           >
-                          <div class="mt-1">
-                            <input
-                              type="text"
-                              name="fullname"
-                              id="fullname"
-                              autocomplete="name"
-                              class="block w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                            />
-                            <p
-                              class="mt-2 text-sm text-red-600"
-                              v-if="route.query?.success == 'false' && route.query?.fullname"
-                            >
-                              {{ route.query?.fullname }}
-                            </p>
-                          </div>
+                            {{ route.query?.fullname }}
+                          </p>
                         </div>
-                        <div>
-                          <label for="email" class="block text-sm font-medium text-gray-900"
-                            >Email</label
+                      </div>
+                      <div>
+                        <label for="email" class="block text-sm font-medium text-gray-900"
+                          >Email</label
+                        >
+                        <div class="mt-1">
+                          <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            class="block w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                          />
+                          <p
+                            class="mt-2 text-sm text-red-600"
+                            v-if="route.query?.success == 'false' && route.query?.email"
                           >
-                          <div class="mt-1">
-                            <input
-                              id="email"
-                              name="email"
-                              type="email"
-                              autocomplete="email"
-                              class="block w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                            />
-                            <p
-                              class="mt-2 text-sm text-red-600"
-                              v-if="route.query?.success == 'false' && route.query?.email"
-                            >
-                              {{ route.query?.email }}
-                            </p>
-                          </div>
+                            {{ route.query?.email }}
+                          </p>
                         </div>
-                        <div class="sm:col-span-2">
-                          <label for="subject" class="block text-sm font-medium text-gray-900"
-                            >Subject</label
+                      </div>
+                      <div class="sm:col-span-2">
+                        <label for="subject" class="block text-sm font-medium text-gray-900"
+                          >Subject</label
+                        >
+                        <div class="mt-1">
+                          <input
+                            type="text"
+                            name="subject"
+                            id="subject"
+                            class="block w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                          />
+                          <p
+                            class="mt-2 text-sm text-red-600"
+                            v-if="route.query?.success == 'false' && route.query?.subject"
                           >
-                          <div class="mt-1">
-                            <input
-                              type="text"
-                              name="subject"
-                              id="subject"
-                              class="block w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                            />
-                            <p
-                              class="mt-2 text-sm text-red-600"
-                              v-if="route.query?.success == 'false' && route.query?.subject"
-                            >
-                              {{ route.query?.subject }}
-                            </p>
-                          </div>
+                            {{ route.query?.subject }}
+                          </p>
                         </div>
-                        <div class="sm:col-span-2">
-                          <div class="flex justify-between">
-                            <label for="message" class="block text-sm font-medium text-gray-900"
-                              >Message</label
-                            >
-                            <span id="message-max" class="text-sm text-gray-500"
-                              >Max. 500 characters</span
-                            >
-                          </div>
-                          <div class="mt-1">
-                            <textarea
-                              id="message"
-                              name="message"
-                              rows="4"
-                              class="block w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                              aria-describedby="message-max"
-                            />
-                            <p
-                              class="mt-2 text-sm text-red-600"
-                              v-if="route.query?.success == 'false' && route.query?.message"
-                            >
-                              {{ route.query?.message }}
-                            </p>
-                          </div>
-                        </div>
-                        <div class="sm:col-span-2 sm:flex sm:justify-end">
-                          <button
-                            type="submit"
-                            class="inline-flex items-center justify-center w-full px-6 py-3 mt-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:w-auto"
+                      </div>
+                      <div class="sm:col-span-2">
+                        <div class="flex justify-between">
+                          <label for="message" class="block text-sm font-medium text-gray-900"
+                            >Message</label
                           >
-                            Submit
-                          </button>
+                          <span id="message-max" class="text-sm text-gray-500"
+                            >Max. 500 characters</span
+                          >
                         </div>
-                      </form>
-                    </div>
+                        <div class="mt-1">
+                          <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            class="block w-full px-4 py-2 text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+                            aria-describedby="message-max"
+                          />
+                          <p
+                            class="mt-2 text-sm text-red-600"
+                            v-if="route.query?.success == 'false' && route.query?.message"
+                          >
+                            {{ route.query?.message }}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="sm:col-span-2 sm:flex sm:justify-end">
+                        <button
+                          type="submit"
+                          class="inline-flex items-center justify-center w-full px-6 py-3 mt-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-primary hover:bg-primary-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary sm:w-auto"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>

@@ -11,37 +11,43 @@
 
         <p class="mt-4 text-center text-gray-500 dark:text-gray-300">See our products in action.</p>
 
-        <div class="flex justify-center">
-          <swiper-container
-            style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
-            class="w-full sm:w-2/3 mySwiper"
-            thumbs-swiper=".mySwiper2"
-            space-between="10"
-            navigation="true"
-          >
-            <swiper-slide lazy="true" :key="index" v-for="index in 214">
-              <div class="overflow-hidden rounded-lg bg-theme-color-2">
+        <div class="grid grid-cols-1 mt-8 xl:mt-12">
+          <div class="flex justify-center">
+            <swiper-container
+              style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+              class="w-full sm:w-2/3 mySwiper"
+              thumbs-swiper=".mySwiper2"
+              space-between="10"
+              navigation="true"
+            >
+              <swiper-slide lazy="true" :key="index" v-for="index in 214">
+                <div class="overflow-hidden rounded-lg bg-theme-color-2">
+                  <img
+                    class="object-contain object-center w-full h-96"
+                    :src="loadImg(index)"
+                    alt=""
+                  />
+                </div>
+              </swiper-slide>
+            </swiper-container>
+          </div>
+          <div class="flex justify-center">
+            <swiper-container
+              class="w-full h-[5em] sm:w-2/3 mySwiper2 sm:h-[9em]"
+              space-between="10"
+              slides-per-view="6"
+              free-mode="true"
+              watch-slides-progress="true"
+            >
+              <swiper-slide lazy="true" :key="index" v-for="index in 214">
                 <img
-                  class="object-contain object-center w-full h-96"
+                  class="object-cover object-center w-full h-full"
                   :src="loadImg(index)"
                   alt=""
                 />
-              </div>
-            </swiper-slide>
-          </swiper-container>
-        </div>
-        <div class="flex justify-center">
-          <swiper-container
-            class="w-full h-[5em] sm:w-2/3 mySwiper2 sm:h-[9em]"
-            space-between="10"
-            slides-per-view="6"
-            free-mode="true"
-            watch-slides-progress="true"
-          >
-            <swiper-slide lazy="true" :key="index" v-for="index in 214">
-              <img class="object-cover object-center w-full h-full" :src="loadImg(index)" alt="" />
-            </swiper-slide>
-          </swiper-container>
+              </swiper-slide>
+            </swiper-container>
+          </div>
         </div>
       </div>
     </section>
