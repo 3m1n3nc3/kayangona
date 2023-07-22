@@ -7,7 +7,7 @@
       :style="{ backgroundImage: `url(${banner})` }"
       v-if="slides.length"
     >
-      <swiper-container>
+      <swiper-container autoplay-delay="3500" loop="true">
         <swiper-slide :key="i" v-for="(slide, i) in slides">
           <div class="container">
             <div class="justify-center row">
