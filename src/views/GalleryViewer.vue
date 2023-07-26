@@ -60,7 +60,7 @@ import { register } from 'swiper/element/bundle'
 register()
 
 const loadImg = (index) => {
-  return `/gallery/0${index}.jpg`
+  return `/gallery_files/0${index}.jpg`
   // if (index < 10) {
   //   return `/gallery/0${index}.jpg`
   // } else if (index < 100) {
